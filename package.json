@@ -1,5 +1,5 @@
 {
-  "name": "ZKSolar",
+  "name": "HouYi",
   "private": true,
   "scripts": {
     "build": "turbo run build",
@@ -16,5 +16,18 @@
   "packageManager": "pnpm@9.0.0",
   "engines": {
     "node": ">=18"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "tabWidth": 2,
+    "trailingComma": "es5",
+    "printWidth": 100,
+    "bracketSpacing": true,
+    "arrowParens": "avoid",
+    "jsxSingleQuote": false,
+    "plugins": [
+      "prettier-plugin-tailwindcss"
+    ]
   }
 }

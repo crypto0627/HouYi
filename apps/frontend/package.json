@@ -9,9 +9,15 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.4.2",
+    "@types/three": "^0.181.0",
+    "lucide-react": "^0.555.0",
     "next": "16.0.4",
+    "prettier-plugin-tailwindcss": "^0.7.2",
     "react": "19.2.0",
-    "react-dom": "19.2.0"
+    "react-dom": "19.2.0",
+    "three": "^0.181.2"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
@@ -22,5 +28,18 @@
     "eslint-config-next": "16.0.4",
     "tailwindcss": "^4",
     "typescript": "^5"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "tabWidth": 2,
+    "trailingComma": "es5",
+    "printWidth": 100,
+    "bracketSpacing": true,
+    "arrowParens": "avoid",
+    "jsxSingleQuote": false,
+    "plugins": [
+      "prettier-plugin-tailwindcss"
+    ]
   }
 }

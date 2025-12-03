@@ -1,0 +1,55 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+  previewFeatures = ["driverAdapters"]
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+// User model
+model users {
+  id        String      @id
+  email     String   @unique
+  name      String?
+  avatar_url String?
+  is_email_verified Boolean @default(true) // Email is verified by default for OAuth users
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  oauth_accounts oauth_accounts[]
+}
+
+// Record of OAuth accounts linked to users
+model oauth_accounts {
+  id               String   @id
+  user_id          String
+  provider         String
+  provider_user_id String
+
+  user users @relation(fields: [user_id], references: [id])
+
+  @@unique([provider, provider_user_id])
+}
+
+// Provder Enum
+enum AuthProvider {
+  GOOGLE
+  APPLE
+  EMAIL_MAGIC_LINK
+}
+
+// Email login requests for magic link authentication
+model EmailLoginRequest {
+  id        String   @id
+  email     String
+  token     String   @unique // send via email link
+  expiresAt DateTime  // link expiration time usally 15 minutes
+  used      Boolean  @default(false) // whether the link has been used
+  createdAt DateTime @default(now())
+}

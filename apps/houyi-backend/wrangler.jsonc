@@ -1,0 +1,13 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "houyi-backend",
+	"compatibility_date": "2025-08-03",
+	"main": "./src/index.tsx",
+	"d1_databases": [
+		{
+			"binding": "houyi_d1_db",
+			"database_name": "houyi-d1-db",
+			"database_id": "9f917815-631f-4c7d-93d8-98ab8b0a5c09"
+		}
+	]
+}
